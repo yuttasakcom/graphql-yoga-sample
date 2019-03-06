@@ -13,6 +13,7 @@
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
     "graphql-subscriptions": "^1.0.0",
+    "graphql-tag": "^2.10.1",
     "graphql-yoga": "^1.17.4",
     "uuid": "^3.3.2"
   },
