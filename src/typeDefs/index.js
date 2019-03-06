@@ -22,6 +22,8 @@ export default gql`
   type User {
     id: String!
     name: String!
+    posts: [Post]
+    comments: [Comment]
   }
 
   type Post {
@@ -29,6 +31,7 @@ export default gql`
     title: String!
     description: String!
     author: User!
+    comments: [Comment]
   }
 
   type Comment {
