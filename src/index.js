@@ -11,10 +11,10 @@ const server = new GraphQLServer({
   resolvers,
   context: {
     models,
-    pubsub
-  }
+    pubsub,
+  },
 })
 
 server.start(() => {
-  console.log(`The server is up`)
+  console.log('Server is running on port 4000')
 })

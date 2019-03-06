@@ -1,14 +1,14 @@
 export default [
   {
     id: '1',
-    name: 'Yo'
+    name: 'Yo',
   },
   {
     id: '2',
-    name: 'Yea'
+    name: 'Yea',
   },
   {
     id: '3',
-    name: 'Sri'
-  }
+    name: 'Sri',
+  },
 ]
