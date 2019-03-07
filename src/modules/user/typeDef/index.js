@@ -6,10 +6,10 @@ export default gql`
   }
 
   extend type Mutation {
-    addUser(data: UserInput): User!
+    createUser(input: CreateUserInput): User!
   }
 
-  input UserInput {
+  input CreateUserInput {
     name: String
   }
 

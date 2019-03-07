@@ -2,7 +2,7 @@ import uuidv4 from 'uuid/v4'
 
 export default {
   Query: {
-    users: (parent, args, { models }) => models.user,
+    users: (parent, args, { models }) => models.user
   },
   User: {
     posts: (parent, args, { models }) => {
@@ -10,16 +10,16 @@ export default {
     },
     comments: (parent, args, { models }) => {
       return models.comment.filter(comment => comment.author === parent.id)
-    },
+    }
   },
   Mutation: {
-    addUser: (parent, args, { models }) => {
+    createUser: (parent, { input }, { models }) => {
       const user = {
         id: uuidv4(),
-        name: args.data.name,
+        name: input.name
       }
       models.user.push(user)
       return user
-    },
-  },
+    }
+  }
 }
