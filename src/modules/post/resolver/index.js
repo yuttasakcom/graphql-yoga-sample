@@ -1,6 +1,6 @@
 export default {
   Query: {
-    posts: (parent, args, { prisma }, info) => {
+    posts: (_, args, { prisma }, info) => {
       const opArgs = {}
 
       if (args.query) {
@@ -11,5 +11,8 @@ export default {
 
       return prisma.query.posts(opArgs, info)
     },
+  },
+  Mutation: {
+    async createPost(_, { data }, { prisma }, info) {},
   },
 }

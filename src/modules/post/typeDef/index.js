@@ -5,6 +5,10 @@ export default gql`
     posts(query: String): [Post!]!
   }
 
+  extend type Mutation {
+    createPost(data: CreatePostInput!): Post!
+  }
+
   type Post {
     id: ID!
     title: String!
@@ -12,5 +16,12 @@ export default gql`
     published: Boolean!
     author: User!
     comments: [Comment!]!
+  }
+
+  input CreatePostInput {
+    title: String!
+    body: String!
+    published: Boolean!
+    author: ID!
   }
 `

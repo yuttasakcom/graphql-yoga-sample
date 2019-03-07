@@ -1,8 +1,6 @@
-import uuidv4 from 'uuid/v4'
-
 export default {
   Query: {
-    users: (parent, args, { prisma }, info) => {
+    users: (_, args, { prisma }, info) => {
       const opArgs = {}
 
       if (args.query) {
@@ -15,13 +13,23 @@ export default {
     },
   },
   Mutation: {
-    createUser: (parent, { input }, { models }) => {
-      const user = {
-        id: uuidv4(),
-        name: input.name,
+    async createUser(_, { data }, { prisma }, info) {
+      const emailTaken = await prisma.exists.User({ email: data.email })
+
+      if (emailTaken) {
+        throw new Error('Email taken')
       }
-      models.user.push(user)
+
+      const user = await prisma.mutation.createUser({ data }, info)
+
       return user
+    },
+    async deleteUser(_, { id }, { prisma }, info) {
+      const userExists = await prisma.exists.User({ id })
+      if (!userExists) {
+        throw new Error('User not found')
+      }
+      return prisma.mutation.deleteUser({ where: { id } }, info)
     },
   },
 }
