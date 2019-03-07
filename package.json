@@ -5,16 +5,19 @@
   "author": "Yuttasak Pannawat <yuttasakcom@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js --exec babel-node"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "get-schema": "graphql get-schema -p prisma"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
+    "graphql-cli": "^3.0.11",
     "graphql-subscriptions": "^1.0.0",
     "graphql-tag": "^2.10.1",
     "graphql-yoga": "^1.17.4",
+    "prisma-binding": "^2.3.4",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
