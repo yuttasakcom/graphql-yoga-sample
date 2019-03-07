@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 export default gql`
   extend type Query {
-    users: [User!]!
+    users(query: String): [User!]!
   }
 
   extend type Mutation {
@@ -16,7 +16,8 @@ export default gql`
   type User {
     id: String!
     name: String!
-    posts: [Post]
-    comments: [Comment]
+    email: String!
+    posts: [Post!]!
+    comments: [Comment!]!
   }
 `

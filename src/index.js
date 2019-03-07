@@ -3,7 +3,7 @@ import { GraphQLServer, PubSub } from 'graphql-yoga'
 import models from './models'
 import typeDefs from './typeDefs'
 import resolvers from './resolvers'
-import './prisma'
+import prisma from './prisma'
 
 const pubsub = new PubSub()
 
@@ -12,8 +12,9 @@ const server = new GraphQLServer({
   resolvers,
   context: {
     models,
-    pubsub
-  }
+    pubsub,
+    prisma,
+  },
 })
 
 server.start(() => {

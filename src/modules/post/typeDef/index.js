@@ -2,14 +2,15 @@ import gql from 'graphql-tag'
 
 export default gql`
   extend type Query {
-    posts: [Post!]!
+    posts(query: String): [Post!]!
   }
 
   type Post {
-    id: String!
+    id: ID!
     title: String!
-    description: String!
+    body: String!
+    published: Boolean!
     author: User!
-    comments: [Comment]
+    comments: [Comment!]!
   }
 `
