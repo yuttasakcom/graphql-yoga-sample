@@ -31,5 +31,14 @@ export default {
       }
       return prisma.mutation.deleteUser({ where: { id } }, info)
     },
+    async updateUser(_, { id, data }, { prisma }, info) {
+      return await prisma.mutation.updateUser(
+        {
+          where: { id },
+          data,
+        },
+        info
+      )
+    },
   },
 }
