@@ -13,6 +13,25 @@ export default {
     },
   },
   Mutation: {
-    async createPost(_, { data }, { prisma }, info) {},
+    async createPost(_, { data }, { prisma }, info) {
+      return await prisma.mutation.createPost(
+        {
+          data: {
+            title: data.title,
+            body: data.body,
+            published: data.published,
+            author: {
+              connect: {
+                id: data.author,
+              },
+            },
+          },
+        },
+        info
+      )
+    },
+    async deletePost(_, { id }, { prisma }, info) {
+      return await prisma.mutation.deletePost({ where: { id } }, info)
+    },
   },
 }

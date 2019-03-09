@@ -7,6 +7,8 @@ export default gql`
 
   extend type Mutation {
     createPost(data: CreatePostInput!): Post!
+    deletePost(id: ID!): Post!
+    updatePost(id: ID!, data: UpdatePostInput!): Post!
   }
 
   type Post {
@@ -23,5 +25,11 @@ export default gql`
     body: String!
     published: Boolean!
     author: ID!
+  }
+
+  input UpdatePostInput {
+    title: String!
+    body: String!
+    published: Boolean!
   }
 `
